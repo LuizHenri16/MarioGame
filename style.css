@@ -10,7 +10,6 @@ body {
 
 .Game-Display {
   margin: 0 auto;
-  background: linear-gradient(rgb(160, 220, 255),rgb(203, 243, 253));
 
   width: 100%;
   height: 500px;
@@ -18,6 +17,38 @@ body {
   position: relative;
   overflow: hidden;
 
+  animation: dayAndnight 30s infinite linear backwards;
+}
+
+@keyframes dayAndnight {
+  0% {
+    background: linear-gradient(rgb(160, 220, 255),rgb(203, 243, 253));
+  }
+
+  20% {
+    background: linear-gradient(rgb(160, 220, 255),rgb(203, 243, 253));
+  }
+
+  40% {
+    background: linear-gradient(rgb(233, 132, 0),rgb(255, 219, 172));
+  }
+  
+  60% {
+    background: linear-gradient(rgb(233, 132, 0),rgb(255, 219, 172));
+  }
+
+  80% {
+    background: linear-gradient(rgb(1, 8, 27),rgb(27, 27, 27));
+  }
+
+  100% {
+    background: linear-gradient(rgb(1, 8, 27),rgb(27, 27, 27));
+  }
+
+  
+
+
+  
 }
 
 .pipe {
@@ -34,6 +65,16 @@ body {
   right: -500px;
 
   animation: cloudAnimation 20s infinite linear;
+}
+
+.clouds2 {
+  width: 300px;
+  opacity: 70%;
+  position: absolute;
+  right: -800px;
+  top: 200px;
+
+  animation: cloudAnimation 40s infinite linear;
 }
 
 
@@ -144,10 +185,6 @@ body {
   border-radius: .2rem;
   border: none;
   outline: none;
-
-  position: absolute;
-  top: 40rem;
-  left: 5rem;
 }
 
 
@@ -194,11 +231,16 @@ body {
   border: none;
   outline: none;
 
-  position: absolute;
-  top: 40rem;
-  left: 25rem;
 }
 
 .Jump-Button:active {
   opacity: 50% ;
+}
+
+.display-items {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
 }

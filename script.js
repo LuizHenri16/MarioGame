@@ -1,6 +1,7 @@
 const mario = document.querySelector(".Mario")
 const pipe = document.querySelector(".pipe")
 const clouds = document.querySelector(".clouds")
+const clouds2 = document.querySelector(".clouds2")
 const gameOverText = document.querySelector(".game-over")
 
 function Jump() {
@@ -10,12 +11,26 @@ function Jump() {
  }, 500)
 }
 
-document.addEventListener("keydown", Jump)
+window.addEventListener('keydown', function(event) {
+  switch(event.keyCode) {
+    case 32: Jump();
+    break;
+    case 74: Jump();
+    break;
+    case 82: restart();
+    break;
+    case 116: 
+    console.log("");
+    break;
+  }
+})
+
 
 
 const loop = setInterval(()=>{
   const pipePosition = pipe.offsetLeft;
   const cloudsPosition = clouds.offsetLeft
+  const clouds2Position = clouds2.offsetLeft
   const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', "");
 
   if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
@@ -31,8 +46,10 @@ const loop = setInterval(()=>{
     mario.style.left = "40px"
 
     clouds.style.animation = "none"
+    clouds2.style.animation = "none"
 
     clouds.style.left = `${cloudsPosition}px`
+    clouds2.style.left = `${clouds2Position}px`
     gameOverText.classList.add("on")
 
 
